@@ -1,0 +1,194 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '/login/loginbuddy.dart';
+import '/login/signup.dart';
+
+class LoginsignupWidget extends StatefulWidget {
+  @override
+  _LoginsignupWidgetState createState() => _LoginsignupWidgetState();
+}
+
+class _LoginsignupWidgetState extends State<LoginsignupWidget> {
+  @override
+  Widget build(BuildContext context) {
+    // Figma Flutter Generator LoginsignupWidget - FRAME
+
+    return Container(
+      width: 393,
+      height: 852,
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(255, 255, 255, 1),
+      ),
+      child: Stack(
+        children: <Widget>[
+          // Background image as a Container
+          Container(
+            width: double.infinity, // Take the full width of the screen
+            height: double.infinity, // Take the full height of the screen
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/Mapsbg.png'),
+                fit: BoxFit.cover, // This will make the image cover the entire container
+                colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5),
+                  BlendMode.dstATop,
+                ),
+              ),
+            ),
+          ),
+          // Other positioned widgets (content over the background)
+          Positioned(
+            top: 560,
+            left: 50,
+            child: GestureDetector(
+              onTap: () {
+                // Navigate to LoginBuddy screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginWidget()),
+                );
+              },
+              child: Container(
+                width: 313,
+                height: 53,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child: Container(
+                        width: 313,
+                        height: 53,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                          color: Color.fromRGBO(69, 178, 143, 1),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 15,
+                      left: 130,
+                      child: Text(
+                        'Login',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontFamily: 'Inter',
+                          fontSize: 20,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                          height: 1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ), Positioned(
+            top: 630,
+            left: 50,
+            child: GestureDetector(
+              onTap: () {
+                // Navigate to Signup screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupWidget()), // Navigate to SignupWidget
+                );
+              },
+              child: Container(
+                width: 313,
+                height: 53,
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child: Container(
+                        width: 313,
+                        height: 53,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            topRight: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          border: Border.all(
+                            color: Color.fromRGBO(69, 178, 143, 1),
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 15,
+                      left: 125,
+                      child: Text(
+                        'Sign Up',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Color.fromRGBO(69, 178, 143, 1),
+                          fontFamily: 'Inter',
+                          fontSize: 20,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                          height: 1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ), Positioned(
+            top: 170,
+            left: 0,
+            child: Container(
+              width: 393,
+              height: 393,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/loginpicture.png'),
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 70,
+            left: (MediaQuery.of(context).size.width - 100) / 2, // Center logo
+            child: SvgPicture.asset(
+              'assets/images/kapitbahaylogonobg.svg',
+              semanticsLabel: 'kapitbahaylogonobg',
+              width: 100,
+              height: 100,
+            ),
+          ),
+          Positioned(
+            top: 170,
+            left: 140,
+            child: Text(
+              'KapitBuddy',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: Color.fromRGBO(69, 178, 143, 1),
+                fontFamily: 'Inter',
+                fontSize: 24,
+                letterSpacing: 0,
+                fontWeight: FontWeight.normal,
+                height: 1,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
