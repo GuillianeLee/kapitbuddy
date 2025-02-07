@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kapitbuddy/User/userprofilemain.dart';
+import '/home/home.dart';
 
 class VerificationSuccess extends StatelessWidget {
   @override
@@ -60,7 +60,7 @@ class VerificationSuccess extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileMain(),
+                      builder: (context) => DashboardScreen(),
                     ),
                   );
                 },

@@ -45,3 +45,5 @@ flutter:
     - assets/images/requirements4.svg
     - assets/images/failed.svg
     - assets/images/success.svg
+    - assets/badges/Verified.png
+    - assets/badges/Founding.png
