@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '/home/chat.dart';
 import '/home/activity.dart';
 import '/home/profile.dart';
+import '/customer/userInfo.dart'; // Import the TaskRequestScreen
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -81,72 +82,81 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Help me find and purchase this book',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-              ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 25,
-                  backgroundImage: AssetImage('assets/avatar.png'),
+      child: GestureDetector(
+        onTap: () {
+          // Navigate to TaskRequestScreen
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => TaskRequestScreen()),
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Help me find and purchase this book',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
-                SizedBox(width: 10),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              ),
+              SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage('assets/avatar.png'),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 4,
+                          children: [
+                            _buildInfoChip(Icons.location_on, 'Azure Beach'),
+                            _buildInfoChip(Icons.calendar_today, '17 Jan, 11:59 PM'),
+                          ],
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Task by Sydny O.',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 4,
-                        children: [
-                          _buildInfoChip(Icons.location_on, 'Azure Beach'),
-                          _buildInfoChip(Icons.calendar_today, '17 Jan, 11:59 PM'),
-                        ],
-                      ),
-                      SizedBox(height: 5),
                       Text(
-                        'Task by Sydny O.',
+                        'PHP 1000.00',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text(
+                        'Negotiable',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      'PHP 1000.00',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      'Negotiable',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Divider(thickness: 1),
-          ],
+                ],
+              ),
+              Divider(thickness: 1),
+            ],
+          ),
         ),
       ),
     );
