@@ -23,12 +23,12 @@ class _LoginsignupWidgetState extends State<LoginsignupWidget> {
         children: <Widget>[
           // Background image as a Container
           Container(
-            width: double.infinity, // Take the full width of the screen
-            height: double.infinity, // Take the full height of the screen
+            width: double.infinity,
+            height: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/images/Mapsbg.png'),
-                fit: BoxFit.cover, // This will make the image cover the entire container
+                fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.5),
                   BlendMode.dstATop,
@@ -36,13 +36,12 @@ class _LoginsignupWidgetState extends State<LoginsignupWidget> {
               ),
             ),
           ),
-          // Other positioned widgets (content over the background)
           Positioned(
             top: 560,
             left: 50,
             child: GestureDetector(
               onTap: () {
-                // Navigate to LoginBuddy screen
+                // LoginBuddy screen
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => LoginWidget()),

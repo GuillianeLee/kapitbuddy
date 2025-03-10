@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/home/chat.dart';
 import '/home/activity.dart';
 import '/home/profile.dart';
-import '/customer/userInfo.dart'; // Import the TaskRequestScreen
+import '/customer/userInfo.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -82,20 +82,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: GestureDetector(
-        onTap: () {
-          // Navigate to TaskRequestScreen
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => TaskRequestScreen()),
-          );
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          padding: EdgeInsets.all(12),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: EdgeInsets.all(12),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TaskRequestScreen()),
+            );
+          },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

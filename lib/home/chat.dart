@@ -6,7 +6,7 @@ class Messages extends StatefulWidget {
 }
 
 class _MessagesState extends State<Messages> {
-  bool _isChatSelected = true; // Tracks which tab is selected
+  bool _isChatSelected = true; // Tabs
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _MessagesState extends State<Messages> {
     return ListTile(
       leading: CircleAvatar(
         radius: 25,
-        backgroundImage: AssetImage('assets/avatar.png'), // Replace with actual image
+        backgroundImage: AssetImage('assets/avatar.png'),
       ),
       title: Text(
         'Sydny O.',
@@ -56,7 +56,7 @@ class _MessagesState extends State<Messages> {
       child: Column(
         children: [
           Image.asset(
-            'assets/notifications_image.png', // Replace with your actual asset path
+            'assets/notifications_image.png',
             width: 200,
           ),
           SizedBox(height: 20),

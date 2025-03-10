@@ -80,15 +80,18 @@ class UserInfoScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UserInfoCard(), // Assuming UserInfoCard is a StatefulWidget or StatelessWidget
+                              builder: (context) => const UserInfoCard(),
                             ),
                           );
                         },
-                        child: const Text("Accept"), // Added const for better performance
+                        child: const Text("Accept"),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
+                          backgroundColor: Color(0xFF45B28F),
                           foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14), // Added const
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
                       ),
                     ),
@@ -102,13 +105,16 @@ class UserInfoScreen extends StatelessWidget {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => ChatScreen(), // const is good here
+                            builder: (context) => ChatScreen(), // const is good here again hhahs
                           );
                         },
-                        child: Text("Start a chat"),
                         style: OutlinedButton.styleFrom(
                           padding: EdgeInsets.symmetric(vertical: 14),
-                        ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: Color(0xFF45B28F), width: 2),
+                          ),
+                        ), child: Text("Start a chat"),
                       ),
                     ),
                   ],

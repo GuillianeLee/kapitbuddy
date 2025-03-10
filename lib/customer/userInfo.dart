@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/customer/userLocation.dart'; // Import the TaskRequestScreen
+import '/customer/userLocation.dart';
 
 
 class TaskRequestScreen extends StatelessWidget {
@@ -33,8 +33,8 @@ class TaskRequestScreen extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(8),
+                    color: Color(0xFF45B28F),
+                  borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
                     "Negotiable",
@@ -152,7 +152,7 @@ class TaskRequestScreen extends StatelessWidget {
                   onPressed: () {},
                   child: Text("Make Offer"),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xFF45B28F),
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     shape: RoundedRectangleBorder(
@@ -200,8 +200,11 @@ class TaskRequestScreen extends StatelessWidget {
             onPressed: () {},
             child: Text("Cancel", style: TextStyle(color: Colors.black)),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green[100],
+              backgroundColor: Color(0xFFDCF5ED),
               padding: EdgeInsets.symmetric(vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
           ),
           ),
@@ -216,11 +219,14 @@ class TaskRequestScreen extends StatelessWidget {
               ),
             );
           },
-          child: const Text("Accept"), // Added const for better performance
+          child: const Text("Accept"),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xFF45B28F),
             foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 14), // Added const
+            padding: const EdgeInsets.symmetric(vertical: 14),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
       ),

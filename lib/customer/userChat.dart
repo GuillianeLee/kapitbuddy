@@ -6,7 +6,7 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Header with user profile and name
+          // Header
           Container(
             padding: EdgeInsets.all(16),
             color: Colors.green.shade400,

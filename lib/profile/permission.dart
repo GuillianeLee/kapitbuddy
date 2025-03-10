@@ -21,7 +21,7 @@ class LocationPermissionDialog extends StatelessWidget {
             ),
             SizedBox(height: 16),
 
-            // Maps Preview (Replace with actual map previews if needed)
+            // Maps Preview
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -43,8 +43,6 @@ class LocationPermissionDialog extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => ProfilesetupWidget()),
               );
             }),
-
-            SizedBox(height: 10),
             SizedBox(height: 10),
             _buildButton(context, 'ONLY THIS TIME', () {
               Navigator.pop(context, 'onlyThisTime');
@@ -87,7 +85,7 @@ class LocationPermissionDialog extends StatelessWidget {
   }
 }
 
-// To show the dialog in your app
+// Dialog
 void showLocationPermissionDialog(BuildContext context) {
   showDialog(
     context: context,

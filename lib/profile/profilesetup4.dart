@@ -42,7 +42,7 @@ class VerificationScreen extends StatelessWidget {
                 SizedBox(height: 5),
                 Center(
                   child: SvgPicture.asset(
-                    'assets/images/requirements4.svg', // Replace with actual image
+                    'assets/images/requirements4.svg',
                     height: 300,
                   ),
                 ),

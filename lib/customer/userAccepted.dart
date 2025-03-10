@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/customer/userRate.dart';
 import '/customer/userChat.dart';
+import '/customer/receipt.dart';
 
 class UserInfoCard extends StatelessWidget {
   const UserInfoCard({super.key});
@@ -72,7 +73,7 @@ class UserInfoCard extends StatelessWidget {
                             ],
                           ),
                           TextButton(
-                            onPressed: () {}, // Action for task details
+                            onPressed: () {}, // Insert task details
                             child: const Text(
                               "View Task Details",
                               style: TextStyle(color: Colors.green),
@@ -96,7 +97,14 @@ class UserInfoCard extends StatelessWidget {
                           context: context,
                           builder: (context) => ChatScreen(), // const is good here
                           );
-                        }, // Chat action
+                        },
+                        style: OutlinedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: Color(0xFF45B28F), width: 2),
+                          ),
+                        ),// Chat action
                         child: const Text("Chat"),
                       ),
                     ),
@@ -106,13 +114,16 @@ class UserInfoCard extends StatelessWidget {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => UserRatingPopup(), // const is good here
+                            builder: (context) =>  ReceiptScreen(), // const is good here
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
+                          backgroundColor: Color(0xFF45B28F),
                           foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
                         child: const Text("Task Done"),
                       ),

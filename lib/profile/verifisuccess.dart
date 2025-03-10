@@ -24,10 +24,10 @@ class VerificationSuccess extends StatelessWidget {
             // Center the content vertically
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center, // Vertically center the content
+                mainAxisAlignment: MainAxisAlignment.center, // Vertically center
                 children: [
                   SvgPicture.asset(
-                    'assets/images/success.svg', // Replace with actual image
+                    'assets/images/success.svg',
                     height: 200,
                   ),
                   SizedBox(height: 10),
@@ -44,7 +44,7 @@ class VerificationSuccess extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 32.0, right: 16.0),
                     child: Text(
                       'Your documents have been successfully verified! You can now proceed accepting tasks. Good luck!',
-                      textAlign: TextAlign.center, // Align text to the left
+                      textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ),

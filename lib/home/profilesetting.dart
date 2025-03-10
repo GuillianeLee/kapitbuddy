@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'profileedit.dart';
 import 'payment.dart';
+import 'dart:io';
 
+class ProfileSetting extends StatefulWidget {
+  final String name;
 
-class EditProfileScreen extends StatelessWidget {
+  ProfileSetting({required this.name, String? profileImage});
+
+  @override
+  _ProfileSettingState createState() => _ProfileSettingState();
+}
+
+class _ProfileSettingState extends State<ProfileSetting> {
+  String name = 'Juan Dela Cruz';
+  String mobileNumber = '09123456789';
+  String email = 'juan@example.com';
+  String? profileImage;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +25,7 @@ class EditProfileScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context, {'name': name, 'profileImage': profileImage});
           },
         ),
         backgroundColor: Colors.white,
@@ -22,28 +36,44 @@ class EditProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile Section
             Row(
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage: NetworkImage(
-                      'Verified.png'), // Replace with actual image
+                  backgroundImage: profileImage != null
+                      ? FileImage(File(profileImage!)) as ImageProvider
+                      : AssetImage('assets/profile.jpg'),
                 ),
                 SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'Juan Dela Cruz',
+                    name,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
                 IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () {
-                    Navigator.push(
+                  onPressed: () async {
+                    final updatedData = await Navigator.push<Map<String, String>>(
                       context,
-                      MaterialPageRoute(builder: (context) => Profileedit()),
+                      MaterialPageRoute(
+                        builder: (context) => Profileedit(
+                          initialName: name,
+                          initialMobileNumber: mobileNumber,
+                          initialEmail: email,
+                          initialProfileImage: profileImage,
+                        ),
+                      ),
                     );
+
+                    if (updatedData != null) {
+                      setState(() {
+                        name = updatedData['name'] ?? name;
+                        mobileNumber = updatedData['mobileNumber'] ?? mobileNumber;
+                        email = updatedData['email'] ?? email;
+                        profileImage = updatedData['profileImage'] ?? profileImage;
+                      });
+                    }
                   },
                 ),
               ],
@@ -72,7 +102,7 @@ class EditProfileScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
+                  backgroundColor: Color(0xFF45B28F),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -104,7 +134,7 @@ class EditProfileScreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PaymentMethodsPage(), // Navigate to your payment methods screen
+              builder: (context) => PaymentMethodsPage(),
             ),
           );
         } else if (title == 'Saved Places') {

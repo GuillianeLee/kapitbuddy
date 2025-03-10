@@ -1,7 +1,16 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'profilesetting.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  String name = 'Juan Dela Cruz';
+  String? profileImage;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,15 +25,29 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          Navigator.push(
+                        onTap: () async {
+                          final updatedData = await Navigator.push<Map<String, String>>(
                             context,
-                            MaterialPageRoute(builder: (context) => EditProfileScreen()),
+                            MaterialPageRoute(
+                              builder: (context) => ProfileSetting(
+                                name: name,
+                                profileImage: profileImage,
+                              ),
+                            ),
                           );
+
+                          if (updatedData != null) {
+                            setState(() {
+                              name = updatedData['name'] ?? name;
+                              profileImage = updatedData['profileImage'] ?? profileImage;
+                            });
+                          }
                         },
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundImage: AssetImage('assets/profile.jpg'), // Change with actual image path
+                          backgroundImage: profileImage != null
+                              ? FileImage(File(profileImage!)) as ImageProvider
+                              : AssetImage('assets/profile.jpg'),
                         ),
                       ),
                       SizedBox(height: 12),
@@ -32,13 +55,14 @@ class ProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Juan Dela Cruz',
+                            name,
                             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(width: 6),
                           Icon(Icons.verified, color: Colors.green, size: 20),
                         ],
                       ),
+
                       // Verification Badges
                       sectionTitle('Verification Badges'),
                       Row(
@@ -60,22 +84,26 @@ class ProfileScreen extends StatelessWidget {
                       // Reviews
                       sectionTitle('Reviews'),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             '5.00',
                             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(width: 6), // Adds spacing between the text and the icon
-                          Icon(Icons.star, color: Colors.amber, size: 24),
+                          SizedBox(height: 2),
+                          Row(
+                            children: List.generate(
+                              5, // Generate 5 stars
+                                  (index) => Icon(Icons.star, color: Colors.amber, size: 16),
+                            ),
+                          ),
+                          SizedBox(height: 12),
+                          reviewCard(
+                            'assets/reviewer.jpg',
+                            'Guillermo Raby',
+                            'Juan is very accommodating and easy to talk to. Very smooth transaction.',
+                          ),
                         ],
-                      ),
-                      SizedBox(height: 12),
-                      reviewCard(
-                        'assets/reviewer.jpg',
-                        'Guillermo Raby',
-                        'Juan is very accommodating and easy to talk to. Very smooth transaction.',
                       ),
                     ],
                   ),
@@ -98,7 +126,7 @@ class ProfileScreen extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 6),
-        Divider(thickness: 1), // Adds a line below the text
+        Divider(thickness: 1),
         SizedBox(height: 10),
       ],
     );

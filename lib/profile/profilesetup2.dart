@@ -63,7 +63,7 @@ class _TaskPreferencesScreenState extends State<TaskPreferencesScreen> {
     'Others': false,
   };
 
-  bool customTaskRequest = false; // New boolean to track the custom task checkbox
+  bool customTaskRequest = false; // Boolean for checkbox
 
   void _onNextPressed() {
     List<String> selectedTasks = [

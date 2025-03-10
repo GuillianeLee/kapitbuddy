@@ -5,8 +5,8 @@ class ProfileMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'), // Or no title if desired
-        centerTitle: true, // Center the title if you have one
+        title: Text('Profile'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -16,8 +16,7 @@ class ProfileMain extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  radius: 50, // Adjust as needed
-                  // Replace with actual image
+                  radius: 50,
                   backgroundImage: NetworkImage('placeholder_profile_image_url'),
                 ),
                 SizedBox(width: 16),
@@ -31,20 +30,19 @@ class ProfileMain extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 8),  // Adjust spacing
+                    SizedBox(height: 8),
                     Row(
                       children: [
-                        // Replace with your badge widget or image
-                        Text('Verified'), // Example
+                        Text('Verified'),
                         SizedBox(width: 8),
-                        Text('Founding Member'), // Example
+                        Text('Founding Member'),
                       ],
                     ),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 16), // Spacing
+            SizedBox(height: 16),
 
             Text(
               'Performance & Quality Badges',
@@ -54,14 +52,14 @@ class ProfileMain extends StatelessWidget {
 
             Row( // Badges Row
               children: [
-                // Replace with your badge widgets/images
-                Text('A'), // Example
+                // Replace with badge widgets/images
+                Text('A'),
                 SizedBox(width: 8),
                 Text('Top Rated'), // Example
               ],
             ),
 
-            SizedBox(height: 16), // Spacing
+            SizedBox(height: 16),
 
             Text(
               'Reviews',

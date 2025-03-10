@@ -27,7 +27,7 @@ class PaymentMethodsPage extends StatelessWidget {
             Divider(),
             _buildPaymentMethodTile('Add gcash', context),
             Divider(),
-            // Add more list tiles as needed
+            // Add more if possible
           ],
         ),
       ),
@@ -39,7 +39,6 @@ class PaymentMethodsPage extends StatelessWidget {
       title: Text(title),
       trailing: Icon(Icons.arrow_forward_ios, size: 16),
       onTap: () {
-        // Handle navigation for each item
         if (title == 'Add payment method') {
           print('Navigate to Add Payment Method screen');
           // Example navigation:
@@ -54,7 +53,7 @@ class PaymentMethodsPage extends StatelessWidget {
   }
 }
 
-// Example placeholder screens (replace with your actual screens)
+//Placeholders
 class AddPaymentMethodScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

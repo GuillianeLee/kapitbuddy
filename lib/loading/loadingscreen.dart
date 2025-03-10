@@ -5,7 +5,7 @@ import '/login/Login.dart';
 class IntroloadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Delay for 3 seconds and navigate to the login/signup screen
+    // Delay for 3 seconds
     Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
@@ -21,13 +21,12 @@ class IntroloadingWidget extends StatelessWidget {
       ),
       child: Stack(
         children: <Widget>[
-          // Center the SVG inside a circular frame
           Center(
             child: ClipOval(
               child: Container(
-                width: 150, // Circle size (adjust as needed)
+                width: 150,
                 height: 150,
-                color: Colors.white, // Background color of the circle
+                color: Colors.white,
                 child: SvgPicture.asset(
                   'assets/images/kapitbahaylogo.svg',
                   semanticsLabel: 'kapitbahaylogo',
@@ -36,7 +35,6 @@ class IntroloadingWidget extends StatelessWidget {
               ),
             ),
           ),
-          // Center the text below the circle
           Positioned(
             bottom: 230,
             left: 0,

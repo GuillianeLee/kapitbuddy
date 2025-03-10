@@ -88,7 +88,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                 // Login Button
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to ProfilesetupWidget
+                    // ProfilesetupWidget
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => LocationPermissionDialog()),

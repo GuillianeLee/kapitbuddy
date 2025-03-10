@@ -10,7 +10,7 @@ class _UserRatingPopupState extends State<UserRatingPopup> {
   final TextEditingController _reviewController = TextEditingController();
 
   void _submitRating() {
-    // Handle rating submission
+    // Rating submission
     print("Rated: $_selectedStars stars");
     print("Review: ${_reviewController.text}");
   }
@@ -65,6 +65,13 @@ class _UserRatingPopupState extends State<UserRatingPopup> {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () => Navigator.pop(context),
+                  style: OutlinedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      side: BorderSide(color: Color(0xFF45B28F), width: 2),
+                    ),
+                  ),
                     child: Text("Cancel"),
                   ),
                 ),
@@ -72,8 +79,15 @@ class _UserRatingPopupState extends State<UserRatingPopup> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _submitRating,
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                    child: Text("Submit", style: TextStyle(color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF45B28F), // Button color
+                      foregroundColor: Colors.white, // Text color
+                      padding: const EdgeInsets.symmetric(vertical: 14), // Padding
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8), // Rounded corners
+                      ),
+                    ),
+                    child: Text("Submit", style: TextStyle(color: Colors.white)), // Correctly placed child
                   ),
                 ),
               ],

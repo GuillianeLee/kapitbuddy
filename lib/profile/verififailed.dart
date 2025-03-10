@@ -23,10 +23,10 @@ class VerificationFailed extends StatelessWidget {
             // Center the content vertically
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center, // Vertically center the content
+                mainAxisAlignment: MainAxisAlignment.center, // Vertically center
                 children: [
                   SvgPicture.asset(
-                    'assets/images/failed.svg', // Replace with actual image
+                    'assets/images/failed.svg',
                     height: 200,
                   ),
                   SizedBox(height: 10),
@@ -43,7 +43,7 @@ class VerificationFailed extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
                       'Please review your uploaded documents and ensure the following:',
-                      textAlign: TextAlign.left, // Align text to the left
+                      textAlign: TextAlign.left,
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ),
@@ -55,7 +55,7 @@ class VerificationFailed extends StatelessWidget {
                           '• Use the original ID, not a photocopy.\n'
                           '• The information you submit must match the details on your documents.\n'
                           '• Upload an appropriate selfie without facial accessories, such as masks or eyeglasses.',
-                      textAlign: TextAlign.left, // Align text to the left
+                      textAlign: TextAlign.left,
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ),
